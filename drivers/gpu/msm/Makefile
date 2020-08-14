@@ -1,4 +1,4 @@
-ccflags-y := -Iinclude/linux
+ccflags-y := -Iinclude/linux -O3 -ffast-math -fgcse-lm -fgcse-sm -fsched-spec-load -fforce-addr -fsingle-precision-constant -mcpu=cortex-a75.cortex-a55 -mtune=cortex-a75.cortex-a55
 
 msm_kgsl_core-y = \
 	kgsl.o \
