@@ -654,6 +654,15 @@ config TCP_CONG_BBR
 	control, and can operate with shallow buffers, deep buffers,
 	bufferbloat, policers, or AQM schemes that do not provide a delay
 	signal. It requires the fq ("Fair Queue") pacing packet scheduler.
+	
+config TCP_CONG_BBRPLUS
+	tristate "BBR PLUS TCP"
+	default n
+	---help---
+	
+	BBR PLUS (Bottleneck Bandwidth and RTT Plus) TCP congestion control
+	Fixed the bug that BBR stalled and converged too slowly under 
+	high packet loss rate.
 
 choice
 	prompt "Default TCP congestion control"
@@ -691,6 +700,9 @@ choice
 
 	config DEFAULT_BBR
 		bool "BBR" if TCP_CONG_BBR=y
+		
+	config DEFAULT_BBRPLUS
+		bool "BBR PLUS" if TCP_CONG_BBRPLUS=y
 
 	config DEFAULT_RENO
 		bool "Reno"
@@ -716,6 +728,7 @@ config DEFAULT_TCP_CONG
 	default "dctcp" if DEFAULT_DCTCP
 	default "cdg" if DEFAULT_CDG
 	default "bbr" if DEFAULT_BBR
+	default "bbr_plus" if DEFAULT_BBRPLUS
 	default "cubic"
 
 config TCP_MD5SIG
