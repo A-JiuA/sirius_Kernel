@@ -1212,8 +1212,6 @@ int adm_get_params_v2(int port_id, int copp_idx, uint32_t module_id,
 	int *params_data = (int *)params;
 	uint64_t sz = 0;
 
-	pr_err("%s: copp_id = %d, client_id=%d\n", __func__, copp_idx, client_id);
-
 	port_id = afe_convert_virtual_to_portid(port_id);
 	port_idx = adm_validate_and_get_port_index(port_id);
 	if (port_idx < 0) {
