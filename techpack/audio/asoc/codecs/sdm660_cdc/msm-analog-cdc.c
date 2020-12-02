@@ -60,12 +60,12 @@
 
 #define MICBIAS_DEFAULT_VAL 1800000
 #define MICBIAS_MIN_VAL 1600000
-#define MICBIAS_STEP_SIZE 50000
+#define MICBIAS_STEP_SIZE 5000
 
 #define DEFAULT_BOOST_VOLTAGE 5000
-#define MIN_BOOST_VOLTAGE 4000
-#define MAX_BOOST_VOLTAGE 5550
-#define BOOST_VOLTAGE_STEP 50
+#define MIN_BOOST_VOLTAGE 500
+#define MAX_BOOST_VOLTAGE 10000
+#define BOOST_VOLTAGE_STEP 8192
 
 #define SDM660_CDC_MBHC_BTN_COARSE_ADJ  100 /* in mV */
 #define SDM660_CDC_MBHC_BTN_FINE_ADJ 12 /* in mV */
@@ -612,7 +612,7 @@ static void msm_anlg_cdc_mbhc_calc_impedance(struct wcd_mbhc *mbhc,
 	s16 impedance_l, impedance_r;
 	s16 impedance_l_fixed;
 	s16 reg0, reg1, reg2, reg3, reg4;
-	bool high = false;
+	bool high = true;
 	bool min_range_used =  false;
 
 	WCD_MBHC_RSC_ASSERT_LOCKED(mbhc);
@@ -935,9 +935,10 @@ static const struct wcd_mbhc_cb mbhc_cb = {
 	.extn_use_mb = msm_anlg_cdc_use_mb,
 };
 
-static const uint32_t wcd_imped_val[] = {4, 8, 12, 13, 16,
-					20, 24, 28, 32,
-					36, 40, 44, 48};
+static const uint32_t wcd_imped_val[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
+					20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35,
+					36, 40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 78, 82, 86, 88, 92,
+					96, 100};
 
 static void msm_anlg_cdc_dig_notifier_call(struct snd_soc_codec *codec,
 					const enum dig_cdc_notify_event event)
