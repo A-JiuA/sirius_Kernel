@@ -31,7 +31,7 @@
 #define MSM89XX_VDD_SPKDRV_NAME "cdc-vdd-spkdrv"
 
 #define DEFAULT_MULTIPLIER 800
-#define DEFAULT_GAIN 9
+#define DEFAULT_GAIN 12
 #define DEFAULT_OFFSET 100
 
 extern const u8 msm89xx_pmic_cdc_reg_readable[MSM89XX_PMIC_CDC_CACHE_SIZE];
