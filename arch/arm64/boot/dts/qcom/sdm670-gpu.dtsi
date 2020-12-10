@@ -74,7 +74,7 @@
 
 		qcom,min-access-length = <32>;
 
-		qcom,ubwc-mode = <2>;
+		qcom,ubwc-mode = <3>;
 
 		/* size in bytes */
 		qcom,snapshot-size = <1048576>;
