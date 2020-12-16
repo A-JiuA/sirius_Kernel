@@ -149,4 +149,4 @@ obj-$(CONFIG_CRYPTO_HASH_INFO) += hash_info.o
 obj-$(CONFIG_CRYPTO_ABLK_HELPER) += ablk_helper.o
 
 # Squeeze a little bit more juice from GCC
- ccflags-y := -O3
+ ccflags-y := -Os
