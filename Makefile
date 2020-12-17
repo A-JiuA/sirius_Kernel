@@ -303,8 +303,8 @@ CONFIG_SHELL := $(shell if [ -x "$$BASH" ]; then echo $$BASH; \
 
 HOSTCC       = gcc
 HOSTCXX      = g++
-HOSTCFLAGS   := -Wall -Wmissing-prototypes -Wstrict-prototypes -O3 -fomit-frame-pointer -std=gnu89
-HOSTCXXFLAGS = -O3
+HOSTCFLAGS   := -Wall -Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer -std=gnu89
+HOSTCXXFLAGS = -O2
 
 # Decide whether to build built-in, modular, or both.
 # Normally, just do built-in.
@@ -757,12 +757,10 @@ KBUILD_CFLAGS	+= -O2 $(call cc-disable-warning,maybe-uninitialized,)
 else
 KBUILD_CFLAGS   += -O2
 ifeq ($(cc-name),gcc)
-KBUILD_CFLAGS	+= -Os -mcpu=cortex-a75.cortex-a55+crypto -mtune=cortex-a75.cortex-a55 -march=armv8.2-a+fp16+fp16fml+simd+crypto+dotprod+predres+sb
-KBUILD_AFLAGS	+= -Os -mcpu=cortex-a75.cortex-a55+crypto -mtune=cortex-a75.cortex-a55 -march=armv8.2-a+fp16+fp16fml+simd+crypto+dotprod+predres+sb
+KBUILD_CFLAGS	+= -Os -mcpu=cortex-a75.cortex-a55+crypto -mtune=cortex-a75.cortex-a55 -march=armv8.2-a+fp16+fp16fml+simd+crypto+dotprod+predres+sb -ffast-math -fforce-addr -fbranch-target-load-optimize -fbranch-target-load-optimize2 -funit-at-a-time -fweb -frename-registers -freorder-blocks -falign-functions -falign-labels -falign-loops -falign-jumps -pipe -fvisibility=hidden -freg-struct-return
 endif
 ifeq ($(cc-name),clang)
-KBUILD_CFLAGS	+= -mcpu=cortex-a75 -mtune=cortex-a75
-KBUILD_AFLAGS	+= -mcpu=cortex-a75 -mtune=cortex-a75
+KBUILD_CFLAGS	+= -O3 -mcpu=cortex-a75 -mtune=cortex-a75
 endif
 endif
 endif

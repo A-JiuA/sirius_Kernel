@@ -68,7 +68,7 @@ VDSO_CFLAGS += -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs \
                -Werror-implicit-function-declaration \
                -Wno-format-security \
                -std=gnu89
-VDSO_CFLAGS  += -Os
+VDSO_CFLAGS  += -Os -ffast-math -fforce-addr -fbranch-target-load-optimize -fbranch-target-load-optimize2 -funit-at-a-time -fweb -frename-registers -freorder-blocks -falign-functions -falign-labels -falign-loops -falign-jumps -pipe -fvisibility=hidden -freg-struct-return
 # Some useful compiler-dependent flags from top-level Makefile
 VDSO_CFLAGS += $(call cc32-option,-Wdeclaration-after-statement,)
 VDSO_CFLAGS += $(call cc32-option,-Wno-pointer-sign)
