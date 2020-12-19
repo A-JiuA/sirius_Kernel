@@ -1264,8 +1264,8 @@ void __set_task_comm(struct task_struct *tsk, const char *buf, bool exec)
 	strlcpy(tsk->comm, buf, sizeof(tsk->comm));
 	task_unlock(tsk);
 
-	if (unlikely(strstr(tsk->comm, "lspeed")) ||
-		unlikely(strstr(tsk->comm, "fde"))) {
+	if (unlikely(strstr(tsk->comm, "cnss_diag")) ||
+		unlikely(strstr(tsk->comm, "tcpdump"))) {
 		struct task_kill_info *kinfo;
 
 		kinfo = kmalloc(sizeof(*kinfo), GFP_KERNEL);
