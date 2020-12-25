@@ -577,11 +577,11 @@ int sde_crtc_post_init(struct drm_device *dev, struct drm_crtc *crtc);
 void sde_crtc_fod_ui_ready(struct drm_crtc *crtc,
 		struct drm_crtc_state *old_state);
 /**
- * sde_crtc_cancel_pending_flip - complete flip for clients on lastclose
+ * sde_crtc_complete_flip - complete flip for clients
  * @crtc: Pointer to drm crtc object
  * @file: client to cancel's file handle
  */
-void sde_crtc_cancel_pending_flip(struct drm_crtc *crtc, struct drm_file *file);
+void sde_crtc_complete_flip(struct drm_crtc *crtc, struct drm_file *file);
 
 /**
  * sde_crtc_register_custom_event - api for enabling/disabling crtc event
