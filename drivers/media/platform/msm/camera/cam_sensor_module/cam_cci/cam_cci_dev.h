@@ -1,4 +1,4 @@
-/* Copyright (c) 2017-2018, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2017-2019, The Linux Foundation. All rights reserved.
  * Copyright (C) 2020 XiaoMi, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
@@ -27,6 +27,7 @@
 #include <linux/timer.h>
 #include <linux/kernel.h>
 #include <linux/platform_device.h>
+#include <linux/mutex.h>
 #include <media/cam_sensor.h>
 #include <media/v4l2-event.h>
 #include <media/v4l2-ioctl.h>

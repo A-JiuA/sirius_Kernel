@@ -1,4 +1,4 @@
-/* Copyright (c) 2017-2018, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2017-2019, The Linux Foundation. All rights reserved.
  * Copyright (C) 2020 XiaoMi, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
@@ -126,6 +126,7 @@ struct cam_isp_context {
 
 	int64_t                          frame_id;
 	uint32_t                         substate_activated;
+	atomic_t                         process_bubble;
 	struct cam_ctx_ops              *substate_machine;
 	struct cam_isp_ctx_irq_ops      *substate_machine_irq;
 

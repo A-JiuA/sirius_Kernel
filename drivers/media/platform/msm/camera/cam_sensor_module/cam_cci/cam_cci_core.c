@@ -1,4 +1,4 @@
-/* Copyright (c) 2017, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2017-2019, The Linux Foundation. All rights reserved.
  * Copyright (C) 2020 XiaoMi, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
@@ -526,7 +526,6 @@ void cam_cci_get_clk_rates(struct cci_device *cci_dev,
 			return;
 		}
 	}
-	return;
 }
 
 extern uint32_t g_operation_mode;
@@ -1322,6 +1321,15 @@ int32_t cam_cci_core_cfg(struct v4l2_subdev *sd,
 	struct cam_cci_ctrl *cci_ctrl)
 {
 	int32_t rc = 0;
+	struct cci_device *cci_dev;
+
+	cci_dev = v4l2_get_subdevdata(sd);
+	if (!cci_dev || !cci_ctrl) {
+		CAM_ERR(CAM_CCI, "failed: invalid params %pK %pK",
+			cci_dev, cci_ctrl);
+		rc = -EINVAL;
+		return rc;
+	}
 
 	CAM_DBG(CAM_CCI, "cmd %d", cci_ctrl->cmd);
 	switch (cci_ctrl->cmd) {
