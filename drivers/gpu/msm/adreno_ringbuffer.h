@@ -1,4 +1,4 @@
-/* Copyright (c) 2002,2007-2018,2019 The Linux Foundation. All rights reserved.
+/* Copyright (c) 2002,2007-2019 The Linux Foundation. All rights reserved.
  * Copyright (C) 2020 XiaoMi, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
