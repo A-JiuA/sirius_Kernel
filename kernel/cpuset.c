@@ -1781,8 +1781,9 @@ static ssize_t cpuset_write_resmask_wrapper(struct kernfs_open_file *of,
 		char *c_name;
 		char *c_cpus;
 	};
-	struct c_data c_targets[6] = {
+	struct c_data c_targets[7] = {
 		/* Silver only cpusets go first */
+		{ "audio",			"2-3"},
 		{ "background",			"0-1"},
 		{ "camera-daemon",		"0-3"},
 		{ "system-background",		"0-3"},
