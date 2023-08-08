@@ -1732,9 +1732,9 @@ static int sel_make_policycap(void)
 	sel_remove_entries(policycap_dir);
 
 	for (iter = 0; iter <= POLICYDB_CAPABILITY_MAX; iter++) {
-		if (iter < ARRAY_SIZE(policycap_names))
+		if (iter < ARRAY_SIZE(selinux_policycap_names))
 			dentry = d_alloc_name(policycap_dir,
-					      policycap_names[iter]);
+					      selinux_policycap_names[iter]);
 		else
 			dentry = d_alloc_name(policycap_dir, "unknown");
 
