@@ -149,4 +149,4 @@ obj-$(CONFIG_CRYPTO_HASH_INFO) += hash_info.o
 obj-$(CONFIG_CRYPTO_ABLK_HELPER) += ablk_helper.o
 
 # Squeeze a little bit more juice from GCC
- ccflags-y := -Os -ffast-math -fforce-addr -fbranch-target-load-optimize -fbranch-target-load-optimize2 -funit-at-a-time -fweb -frename-registers -freorder-blocks -falign-functions -falign-labels -falign-loops -falign-jumps -pipe -fvisibility=hidden -freg-struct-return
+ ccflags-y := -Os -ffast-math -fforce-addr -funit-at-a-time -fweb -frename-registers -freorder-blocks -falign-functions -falign-labels -falign-loops -falign-jumps -pipe -fvisibility=hidden

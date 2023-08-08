@@ -535,7 +535,7 @@ KBUILD_CFLAGS += $(call cc-disable-warning, format-invalid-specifier)
 KBUILD_CFLAGS += $(call cc-disable-warning, gnu)
 KBUILD_CFLAGS += $(call cc-disable-warning, address-of-packed-member)
 KBUILD_CFLAGS += $(call cc-disable-warning, duplicate-decl-specifier)
-KBUILD_CFLAGS += -Wno-undefined-optimized
+KBUILD_CFLAGS += -Wno-undefined-inline
 KBUILD_CFLAGS += -Wno-tautological-constant-out-of-range-compare
 KBUILD_CFLAGS += $(call cc-option, -Wno-sometimes-uninitialized)
 KBUILD_CFLAGS += -Wno-asm-operand-widths
@@ -770,7 +770,7 @@ KBUILD_CFLAGS	+= -O2 $(call cc-disable-warning,maybe-uninitialized,)
 else
 KBUILD_CFLAGS   += -O2
 ifeq ($(cc-name),gcc)
-KBUILD_CFLAGS	+= -Os -mcpu=cortex-a75.cortex-a55+crypto -mtune=cortex-a75.cortex-a55 -march=armv8.2-a+fp16+fp16fml+simd+crypto+dotprod+predres+sb -ffast-math -fforce-addr -fbranch-target-load-optimize -fbranch-target-load-optimize2 -funit-at-a-time -fweb -frename-registers -freorder-blocks -falign-functions -falign-labels -falign-loops -falign-jumps -pipe -fvisibility=hidden -freg-struct-return
+KBUILD_CFLAGS	+= -Os -march=armv8.2-a+fp16+fp16fml+simd+crypto+dotprod+predres+sb -ffast-math -fforce-addr -funit-at-a-time -fweb -frename-registers -freorder-blocks -falign-functions -falign-labels -falign-loops -falign-jumps -pipe -fvisibility=hidden
 endif
 ifeq ($(cc-name),clang)
 KBUILD_CFLAGS	+= -O3 -mcpu=cortex-a75 -mtune=cortex-a75

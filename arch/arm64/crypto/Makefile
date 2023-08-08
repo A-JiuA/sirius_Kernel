@@ -37,9 +37,9 @@ CFLAGS_aes-glue-ce.o	:= -DUSE_V8_CRYPTO_EXTENSIONS
 
 obj-$(CONFIG_CRYPTO_CRC32_ARM64) += crc32-arm64.o
 
-CFLAGS_crc32-arm64.o	:= -mcpu=cortex-a75.cortex-a55+crc
+CFLAGS_crc32-arm64.o	:= 
 
-ccflags-y := -Os -ffast-math -fforce-addr -fbranch-target-load-optimize -fbranch-target-load-optimize2 -funit-at-a-time -fweb -frename-registers -freorder-blocks -falign-functions -falign-labels -falign-loops -falign-jumps -pipe -fvisibility=hidden -freg-struct-return
+ccflags-y := -Os -ffast-math -fforce-addr -funit-at-a-time -fweb -frename-registers -freorder-blocks -falign-functions -falign-labels -falign-loops -falign-jumps -pipe -fvisibility=hidden
 
 $(obj)/aes-glue-%.o: $(src)/aes-glue.c FORCE
 	$(call if_changed_rule,cc_o_c)
